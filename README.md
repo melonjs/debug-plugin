@@ -5,7 +5,7 @@
 
 Installation
 -------------------------------------------------------------------------------
-`$ [sudo] npm install @melonjs/debug-plugin --save-dev`
+`$ [sudo] npm install @melonjs/debug-plugin`
 
 Then import and instantiante the debug plugin in your project. For example:
 ```JavaScript
