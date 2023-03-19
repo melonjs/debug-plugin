@@ -1,5 +1,5 @@
 /*!
- * melonJS debug plugin - v14.4.2
+ * melonJS debug plugin - v14.4.3
  * http://www.melonjs.org
  * @melonjs/debug-plugin is licensed under the MIT License.
  * http://www.opensource.org/licenses/mit-license
@@ -71,7 +71,7 @@ class DebugPanel extends Renderable {
         this.name = "debugPanel";
 
         // the debug panel version
-        this.version = "14.4.2";
+        this.version = "14.4.3";
 
         // persistent
         this.isPersistent = true;
