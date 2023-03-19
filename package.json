@@ -66,6 +66,7 @@
   "scripts": {
     "build": "npm run lint && rollup -c --silent",
     "lint": "eslint src/**.js rollup.config.mjs",
+    "test": "",
     "prepublishOnly": "npm run build && npm run test",
     "clean": "del-cli --force build/*.*"
   }
