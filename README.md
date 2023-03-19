@@ -9,14 +9,13 @@ Installation
 
 Then import and instantiante the debug plugin in your project. For example:
 ```JavaScript
-    import { utils, plugin } from 'melonjs';
-    // initialize the debug plugin in development mode.
-    if (typeof process !== "undefined" && process.env.NODE_ENV === 'development') {
-        import("@melonjs/debug-plugin").then((debugPlugin) => {
-            // automatically register the debug panel
-            utils.function.defer(plugin.register, this, debugPlugin.DebugPanelPlugin, "debugPanel");
-        });
-    }
+import { utils, plugin } from 'melonjs';
+
+// dynamically import the plugin
+import("@melonjs/debug-plugin").then((debugPlugin) => {
+    // automatically register the debug panel
+    utils.function.defer(plugin.register, this, debugPlugin.DebugPanelPlugin, "debugPanel");
+});
 ```
 
 Usage

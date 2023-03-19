@@ -1,6 +1,6 @@
 {
   "name": "@melonjs/debug-plugin",
-  "version": "14.4.5",
+  "version": "14.4.7",
   "description": "melonJS debug plugin",
   "type": "module",
   "keywords": [
@@ -66,8 +66,7 @@
   "scripts": {
     "build": "npm run lint && rollup -c --silent",
     "lint": "eslint src/**.js rollup.config.mjs",
-    "test": "",
-    "prepublishOnly": "npm run build && npm run test",
+    "prepublishOnly": "npm run build",
     "clean": "del-cli --force build/*.*"
   }
 }
