@@ -44,7 +44,7 @@ export default [{
         bundleSize()
     ],
     output: {
-        file: "dist/melonjs-debug-plugin.js",
+        file: "dist/" + pkg.name + ".js",
         banner: license,
         freeze: false,
         format: "es"
