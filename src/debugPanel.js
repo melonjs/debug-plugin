@@ -197,12 +197,10 @@ class DebugPanel extends Renderable {
                     if (_this.checkbox.renderHitBox.selected && this.getBounds().isFinite()) {
 
                         if (typeof this.ancestor !== "undefined") {
-                            var absolutePosition = this.ancestor.getAbsolutePosition();
-
                             renderer.save();
-
                             // if this object of this renderable parent is not the root container
                             if (!this.root && !this.ancestor.root && this.ancestor.floating) {
+                                var absolutePosition = this.ancestor.getAbsolutePosition();
                                 renderer.translate(
                                     -absolutePosition.x,
                                     -absolutePosition.y
@@ -278,12 +276,11 @@ class DebugPanel extends Renderable {
                 var bounds = this.getBounds();
 
                 if (typeof this.ancestor !== "undefined") {
-                    var absolutePosition = this.ancestor.getAbsolutePosition();
-
                     renderer.save();
 
                     // if this object of this renderable parent is not the root container
                     if (!this.root && !this.ancestor.root && this.ancestor.floating) {
+                        var absolutePosition = this.ancestor.getAbsolutePosition();
                         renderer.translate(
                             -absolutePosition.x,
                             -absolutePosition.y
@@ -293,6 +290,10 @@ class DebugPanel extends Renderable {
 
                 renderer.setColor("green");
                 renderer.stroke(bounds);
+
+                if (typeof this.ancestor !== "undefined") {
+                    renderer.restore();
+                }
             }
         });
 
@@ -308,10 +309,9 @@ class DebugPanel extends Renderable {
 
 
                     if (typeof this.ancestor !== "undefined") {
-                        var absolutePosition = this.ancestor.getAbsolutePosition();
-
                         // if this object of this renderable parent is not the root container
                         if (!this.root && !this.ancestor.root && this.ancestor.floating) {
+                            var absolutePosition = this.ancestor.getAbsolutePosition();
                             renderer.translate(
                                 -absolutePosition.x,
                                 -absolutePosition.y
