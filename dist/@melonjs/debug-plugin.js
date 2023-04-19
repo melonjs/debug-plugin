@@ -1,5 +1,5 @@
 /*!
- * melonJS debug plugin - v14.5.0
+ * melonJS debug plugin - v14.5.1
  * http://www.melonjs.org
  * @melonjs/debug-plugin is licensed under the MIT License.
  * http://www.opensource.org/licenses/mit-license
@@ -71,7 +71,7 @@ class DebugPanel extends Renderable {
         this.name = "debugPanel";
 
         // the debug panel version
-        this.version = "14.5.0";
+        this.version = "14.5.1";
 
         // persistent
         this.isPersistent = true;
@@ -201,12 +201,10 @@ class DebugPanel extends Renderable {
                     if (_this.checkbox.renderHitBox.selected && this.getBounds().isFinite()) {
 
                         if (typeof this.ancestor !== "undefined") {
-                            var absolutePosition = this.ancestor.getAbsolutePosition();
-
                             renderer.save();
-
                             // if this object of this renderable parent is not the root container
-                            if (!this.root && !this.ancestor.root && this.ancestor.floating) {
+                            if (!this.root && !this.ancestor.root && this.ancestor.isFloating) {
+                                var absolutePosition = this.ancestor.getAbsolutePosition();
                                 renderer.translate(
                                     -absolutePosition.x,
                                     -absolutePosition.y
@@ -282,12 +280,11 @@ class DebugPanel extends Renderable {
                 var bounds = this.getBounds();
 
                 if (typeof this.ancestor !== "undefined") {
-                    var absolutePosition = this.ancestor.getAbsolutePosition();
-
                     renderer.save();
 
                     // if this object of this renderable parent is not the root container
-                    if (!this.root && !this.ancestor.root && this.ancestor.floating) {
+                    if (!this.root && !this.ancestor.root && this.ancestor.isFloating) {
+                        var absolutePosition = this.ancestor.getAbsolutePosition();
                         renderer.translate(
                             -absolutePosition.x,
                             -absolutePosition.y
@@ -297,6 +294,10 @@ class DebugPanel extends Renderable {
 
                 renderer.setColor("green");
                 renderer.stroke(bounds);
+
+                if (typeof this.ancestor !== "undefined") {
+                    renderer.restore();
+                }
             }
         });
 
@@ -312,10 +313,9 @@ class DebugPanel extends Renderable {
 
 
                     if (typeof this.ancestor !== "undefined") {
-                        var absolutePosition = this.ancestor.getAbsolutePosition();
-
                         // if this object of this renderable parent is not the root container
-                        if (!this.root && !this.ancestor.root && this.ancestor.floating) {
+                        if (!this.root && !this.ancestor.root && this.ancestor.isFloating) {
+                            var absolutePosition = this.ancestor.getAbsolutePosition();
                             renderer.translate(
                                 -absolutePosition.x,
                                 -absolutePosition.y
