@@ -199,7 +199,7 @@ class DebugPanel extends Renderable {
                         if (typeof this.ancestor !== "undefined") {
                             renderer.save();
                             // if this object of this renderable parent is not the root container
-                            if (!this.root && !this.ancestor.root && this.ancestor.floating) {
+                            if (!this.root && !this.ancestor.root && this.ancestor.isFloating) {
                                 var absolutePosition = this.ancestor.getAbsolutePosition();
                                 renderer.translate(
                                     -absolutePosition.x,
@@ -279,7 +279,7 @@ class DebugPanel extends Renderable {
                     renderer.save();
 
                     // if this object of this renderable parent is not the root container
-                    if (!this.root && !this.ancestor.root && this.ancestor.floating) {
+                    if (!this.root && !this.ancestor.root && this.ancestor.isFloating) {
                         var absolutePosition = this.ancestor.getAbsolutePosition();
                         renderer.translate(
                             -absolutePosition.x,
@@ -310,7 +310,7 @@ class DebugPanel extends Renderable {
 
                     if (typeof this.ancestor !== "undefined") {
                         // if this object of this renderable parent is not the root container
-                        if (!this.root && !this.ancestor.root && this.ancestor.floating) {
+                        if (!this.root && !this.ancestor.root && this.ancestor.isFloating) {
                             var absolutePosition = this.ancestor.getAbsolutePosition();
                             renderer.translate(
                                 -absolutePosition.x,
