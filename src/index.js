@@ -33,7 +33,7 @@ export class DebugPanelPlugin extends plugin.Base {
         super();
 
         // minimum melonJS version expected
-        this.version = "14.5.0";
+        this.version = "15.1.5";
 
         this.panel = new DebugPanel(debugToggle);
 

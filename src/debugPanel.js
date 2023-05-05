@@ -198,8 +198,7 @@ class DebugPanel extends Renderable {
 
                         if (typeof this.ancestor !== "undefined") {
                             renderer.save();
-                            // if this object of this renderable parent is not the root container
-                            if (!this.root && !this.ancestor.root && this.ancestor.isFloating) {
+                            if (!this.floating) {
                                 var absolutePosition = this.ancestor.getAbsolutePosition();
                                 renderer.translate(
                                     -absolutePosition.x,
@@ -208,8 +207,10 @@ class DebugPanel extends Renderable {
                             }
                         }
 
+                        var bounds = this.getBounds();
+
                         renderer.setColor("green");
-                        renderer.stroke(this.getBounds());
+                        renderer.stroke(bounds);
 
                         // the sprite mask if defined
                         if (typeof this.mask !== "undefined") {
@@ -218,7 +219,6 @@ class DebugPanel extends Renderable {
                         }
 
                         if (typeof this.body !== "undefined") {
-                            var bounds = this.getBounds();
                             renderer.translate(bounds.x, bounds.y);
 
                             renderer.setColor("orange");
@@ -310,7 +310,7 @@ class DebugPanel extends Renderable {
 
                     if (typeof this.ancestor !== "undefined") {
                         // if this object of this renderable parent is not the root container
-                        if (!this.root && !this.ancestor.root && this.ancestor.isFloating) {
+                        if (!this.floating) {
                             var absolutePosition = this.ancestor.getAbsolutePosition();
                             renderer.translate(
                                 -absolutePosition.x,
@@ -320,8 +320,14 @@ class DebugPanel extends Renderable {
                     }
 
                     if (this.renderable instanceof Renderable) {
+                        var rbounds = this.renderable.getBounds();
+                        var rx = -rbounds.x - this.anchorPoint.x * rbounds.width,
+                            ry = -rbounds.y - this.anchorPoint.y * rbounds.height;
+
                         renderer.setColor("green");
-                        renderer.stroke(this.renderable.getBounds());
+                        renderer.translate(rx, ry);
+                        renderer.stroke(rbounds);
+                        renderer.translate(-rx, -ry);
                     }
 
                     renderer.translate(
