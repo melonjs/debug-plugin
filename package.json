@@ -47,7 +47,7 @@
     "LICENSE"
   ],
   "peerDependencies": {
-    "melonjs": "^15.1.0"
+    "melonjs": "^15.1.5"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.21.8",
