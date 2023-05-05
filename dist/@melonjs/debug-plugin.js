@@ -1,5 +1,5 @@
 /*!
- * melonJS debug plugin - v14.5.1
+ * melonJS debug plugin - v14.5.2
  * http://www.melonjs.org
  * @melonjs/debug-plugin is licensed under the MIT License.
  * http://www.opensource.org/licenses/mit-license
@@ -71,7 +71,7 @@ class DebugPanel extends Renderable {
         this.name = "debugPanel";
 
         // the debug panel version
-        this.version = "14.5.1";
+        this.version = "14.5.2";
 
         // persistent
         this.isPersistent = true;
@@ -202,8 +202,7 @@ class DebugPanel extends Renderable {
 
                         if (typeof this.ancestor !== "undefined") {
                             renderer.save();
-                            // if this object of this renderable parent is not the root container
-                            if (!this.root && !this.ancestor.root && this.ancestor.isFloating) {
+                            if (!this.floating) {
                                 var absolutePosition = this.ancestor.getAbsolutePosition();
                                 renderer.translate(
                                     -absolutePosition.x,
@@ -212,8 +211,10 @@ class DebugPanel extends Renderable {
                             }
                         }
 
+                        var bounds = this.getBounds();
+
                         renderer.setColor("green");
-                        renderer.stroke(this.getBounds());
+                        renderer.stroke(bounds);
 
                         // the sprite mask if defined
                         if (typeof this.mask !== "undefined") {
@@ -222,7 +223,6 @@ class DebugPanel extends Renderable {
                         }
 
                         if (typeof this.body !== "undefined") {
-                            var bounds = this.getBounds();
                             renderer.translate(bounds.x, bounds.y);
 
                             renderer.setColor("orange");
@@ -314,7 +314,7 @@ class DebugPanel extends Renderable {
 
                     if (typeof this.ancestor !== "undefined") {
                         // if this object of this renderable parent is not the root container
-                        if (!this.root && !this.ancestor.root && this.ancestor.isFloating) {
+                        if (!this.floating) {
                             var absolutePosition = this.ancestor.getAbsolutePosition();
                             renderer.translate(
                                 -absolutePosition.x,
@@ -324,8 +324,14 @@ class DebugPanel extends Renderable {
                     }
 
                     if (this.renderable instanceof Renderable) {
+                        var rbounds = this.renderable.getBounds();
+                        var rx = -rbounds.x - this.anchorPoint.x * rbounds.width,
+                            ry = -rbounds.y - this.anchorPoint.y * rbounds.height;
+
                         renderer.setColor("green");
-                        renderer.stroke(this.renderable.getBounds());
+                        renderer.translate(rx, ry);
+                        renderer.stroke(rbounds);
+                        renderer.translate(-rx, -ry);
                     }
 
                     renderer.translate(
@@ -591,7 +597,7 @@ class DebugPanelPlugin extends plugin.Base {
         super();
 
         // minimum melonJS version expected
-        this.version = "14.5.0";
+        this.version = "15.1.5";
 
         this.panel = new DebugPanel(debugToggle);
 
