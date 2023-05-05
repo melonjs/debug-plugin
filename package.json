@@ -1,6 +1,6 @@
 {
   "name": "@melonjs/debug-plugin",
-  "version": "14.5.1",
+  "version": "14.5.2",
   "description": "melonJS debug plugin",
   "type": "module",
   "keywords": [
@@ -47,7 +47,7 @@
     "LICENSE"
   ],
   "peerDependencies": {
-    "melonjs": "^15.0.0"
+    "melonjs": "^15.1.0"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.21.3",
