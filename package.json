@@ -1,6 +1,6 @@
 {
   "name": "@melonjs/debug-plugin",
-  "version": "14.5.2",
+  "version": "14.5.3",
   "description": "melonJS debug plugin",
   "type": "module",
   "keywords": [
@@ -47,7 +47,7 @@
     "LICENSE"
   ],
   "peerDependencies": {
-    "melonjs": "^15.1.5"
+    "melonjs": "^15.1.6"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.21.8",
@@ -57,9 +57,9 @@
     "@rollup/plugin-node-resolve": "^15.0.2",
     "@rollup/plugin-replace": "^5.0.2",
     "del-cli": "^5.0.0",
-    "eslint": "^8.39.0",
-    "eslint-plugin-jsdoc": "^43.1.1",
-    "rollup": "^3.21.5",
+    "eslint": "^8.40.0",
+    "eslint-plugin-jsdoc": "^44.2.2",
+    "rollup": "^3.21.6",
     "rollup-plugin-bundle-size": "^1.0.3",
     "rollup-plugin-string": "^3.0.0"
   },
