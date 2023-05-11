@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+      "target": "es2020",
+      "allowJs": true,
+      "checkJs": false,
+      "skipLibCheck": true,
+      "emitDeclarationOnly": true,
+      "declaration": true,
+      "declarationDir": "dist",
+      "removeComments": false,
+      "strict": true,
+      "noImplicitAny": true,
+      "moduleResolution": "node",
+      "resolveJsonModule": true,
+  },
+  "include": ["src/index.js"],
+  "exclude": ["node_modules"]
+}

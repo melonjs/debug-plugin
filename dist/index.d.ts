@@ -1,6 +1,4 @@
-import { utils, plugin } from "melonjs";
-import DebugPanel from "./debugPanel";
-
+declare const DebugPanelPlugin_base: any;
 /**
  * @classdesc
  * a simple debug panel plugin <br>
@@ -26,45 +24,23 @@ import DebugPanel from "./debugPanel";
  * &bull; quadtree spatial visualization <br>
  * @augments plugin.Base
  */
-export class DebugPanelPlugin extends plugin.Base {
-
-    constructor(debugToggle) {
-        // call the super constructor
-        super();
-
-        // minimum melonJS version expected
-        this.version = "15.1.5";
-
-        this.panel = new DebugPanel(debugToggle);
-
-        // if "#debug" is present in the URL
-        if (utils.getUriFragment().debug === true) {
-            this.show();
-        } // else keep it hidden
-    }
-
+export class DebugPanelPlugin extends DebugPanelPlugin_base {
+    [x: string]: any;
+    constructor(debugToggle: any);
+    version: string;
+    panel: DebugPanel;
     /**
      * show the debug panel
      */
-    show() {
-        this.panel.show();
-    }
-
+    show(): void;
     /**
      * hide the debug panel
      */
-    hide() {
-        this.panel.hide();
-    }
-
+    hide(): void;
     /**
      * toggle the debug panel visibility state
      */
-    toggle() {
-        if (this.panel.visible) {
-            this.panel.hide();
-        } else {
-            this.panel.show();
-        }
-    }
+    toggle(): void;
 }
+import DebugPanel from "./debugPanel";
+export {};

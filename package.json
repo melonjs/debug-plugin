@@ -38,6 +38,7 @@
   },
   "main": "dist/@melonjs/debug-plugin.js",
   "module": "dist/@melonjs/debug-plugin.js",
+  "types": "dist/index.d.ts",
   "sideEffects": false,
   "files": [
     "dist/@melonjs/debug-plugin.js",
@@ -61,12 +62,14 @@
     "eslint-plugin-jsdoc": "^44.2.2",
     "rollup": "^3.21.6",
     "rollup-plugin-bundle-size": "^1.0.3",
-    "rollup-plugin-string": "^3.0.0"
+    "rollup-plugin-string": "^3.0.0",
+    "typescript": "^5.0.4"
   },
   "scripts": {
-    "build": "npm run lint && rollup -c --silent",
+    "build": "npm run lint && rollup -c --silent && npm run types",
     "lint": "eslint src/**.js rollup.config.mjs",
     "prepublishOnly": "npm run build",
-    "clean": "del-cli --force build/*.*"
+    "clean": "del-cli --force dist/*.*",
+    "types": "tsc"
   }
 }
