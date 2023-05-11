@@ -6,7 +6,7 @@
       "skipLibCheck": true,
       "emitDeclarationOnly": true,
       "declaration": true,
-      "declarationDir": "dist",
+      "declarationDir": "dist/@melonjs",
       "removeComments": false,
       "strict": true,
       "noImplicitAny": true,

@@ -26,7 +26,7 @@ import fontDataSource from "./font/PressStart2P.fnt";
 
 const DEBUG_HEIGHT = 50;
 
-class DebugPanel extends Renderable {
+export class DebugPanel extends Renderable {
     constructor(debugToggle = input.KEY.S) {
         // call the super constructor
         super(0, 0, video.renderer.getWidth(), DEBUG_HEIGHT );
@@ -560,5 +560,3 @@ class DebugPanel extends Renderable {
         input.unbindKey(this.toggleKey);
     }
 }
-
-export default DebugPanel;

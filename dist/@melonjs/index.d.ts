@@ -28,7 +28,7 @@ export class DebugPanelPlugin extends DebugPanelPlugin_base {
     [x: string]: any;
     constructor(debugToggle: any);
     version: string;
-    panel: DebugPanel;
+    panel: any;
     /**
      * show the debug panel
      */
@@ -42,5 +42,4 @@ export class DebugPanelPlugin extends DebugPanelPlugin_base {
      */
     toggle(): void;
 }
-import DebugPanel from "./debugPanel";
 export {};
