@@ -1,5 +1,5 @@
 import { utils, plugin } from "melonjs";
-import { DebugPanel } from "debugPanel";
+import { DebugPanel } from "./debugPanel";
 
 /**
  * @classdesc

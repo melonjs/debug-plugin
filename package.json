@@ -1,6 +1,6 @@
 {
   "name": "@melonjs/debug-plugin",
-  "version": "14.6.1",
+  "version": "14.6.2",
   "description": "melonJS debug plugin",
   "type": "module",
   "keywords": [
@@ -38,7 +38,7 @@
   },
   "main": "dist/@melonjs/debug-plugin.js",
   "module": "dist/@melonjs/debug-plugin.js",
-  "types": "dist/index.d.ts",
+  "types": "dist/@melonjs/debug-plugin.d.ts",
   "sideEffects": false,
   "files": [
     "dist/@melonjs/debug-plugin.js",
@@ -69,7 +69,7 @@
     "build": "npm run lint && rollup -c --silent && npm run types",
     "lint": "eslint src/**.js rollup.config.mjs",
     "prepublishOnly": "npm run build",
-    "clean": "del-cli --force dist/*.*",
+    "clean": "del-cli --force dist/*",
     "types": "tsc"
   }
 }
