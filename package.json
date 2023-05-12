@@ -1,6 +1,6 @@
 {
   "name": "@melonjs/debug-plugin",
-  "version": "14.6.3",
+  "version": "14.6.4",
   "description": "melonJS debug plugin",
   "type": "module",
   "keywords": [
@@ -41,7 +41,7 @@
   "types": "dist/@melonjs/debug-plugin.d.ts",
   "sideEffects": false,
   "files": [
-    "dist/@melonjs/debug-plugin.js",
+    "dist/",
     "src/",
     "package.json",
     "README.md",
