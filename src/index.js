@@ -24,16 +24,16 @@ import { DebugPanel } from "./debugPanel";
  * &bull; the hitbox or bounding box for all objects <br>
  * &bull; current velocity vector <br>
  * &bull; quadtree spatial visualization <br>
- * @augments plugin.Base
+ * @augments plugin.BasePlugin
  */
-export class DebugPanelPlugin extends plugin.Base {
+export class DebugPanelPlugin extends plugin.BasePlugin {
 
     constructor(debugToggle) {
         // call the super constructor
         super();
 
         // minimum melonJS version expected
-        this.version = "15.1.5";
+        this.version = "15.2.0";
 
         this.panel = new DebugPanel(debugToggle);
 

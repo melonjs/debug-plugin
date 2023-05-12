@@ -1,5 +1,5 @@
 /*!
- * melonJS debug plugin - v14.6.2
+ * melonJS debug plugin - v14.6.3
  * http://www.melonjs.org
  * @melonjs/debug-plugin is licensed under the MIT License.
  * http://www.opensource.org/licenses/mit-license
@@ -71,7 +71,7 @@ class DebugPanel extends Renderable {
         this.name = "debugPanel";
 
         // the debug panel version
-        this.version = "14.6.2";
+        this.version = "14.6.3";
 
         // persistent
         this.isPersistent = true;
@@ -588,16 +588,16 @@ class DebugPanel extends Renderable {
  * &bull; the hitbox or bounding box for all objects <br>
  * &bull; current velocity vector <br>
  * &bull; quadtree spatial visualization <br>
- * @augments plugin.Base
+ * @augments plugin.BasePlugin
  */
-class DebugPanelPlugin extends plugin.Base {
+class DebugPanelPlugin extends plugin.BasePlugin {
 
     constructor(debugToggle) {
         // call the super constructor
         super();
 
         // minimum melonJS version expected
-        this.version = "15.1.5";
+        this.version = "15.2.0";
 
         this.panel = new DebugPanel(debugToggle);
 

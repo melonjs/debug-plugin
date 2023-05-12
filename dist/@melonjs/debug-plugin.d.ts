@@ -1,4 +1,3 @@
-declare const DebugPanelPlugin_base: any;
 /**
  * @classdesc
  * a simple debug panel plugin <br>
@@ -22,12 +21,10 @@ declare const DebugPanelPlugin_base: any;
  * &bull; the hitbox or bounding box for all objects <br>
  * &bull; current velocity vector <br>
  * &bull; quadtree spatial visualization <br>
- * @augments plugin.Base
+ * @augments plugin.BasePlugin
  */
-export class DebugPanelPlugin extends DebugPanelPlugin_base {
-    [x: string]: any;
+export class DebugPanelPlugin extends plugin.BasePlugin {
     constructor(debugToggle: any);
-    version: string;
     panel: DebugPanel;
     /**
      * show the debug panel
@@ -42,6 +39,7 @@ export class DebugPanelPlugin extends DebugPanelPlugin_base {
      */
     toggle(): void;
 }
+import { plugin } from 'melonjs';
 declare class DebugPanel extends Renderable {
     constructor(debugToggle?: number);
     checkbox: {};
