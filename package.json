@@ -1,6 +1,6 @@
 {
   "name": "@melonjs/debug-plugin",
-  "version": "14.6.4",
+  "version": "14.6.5",
   "description": "melonJS debug plugin",
   "type": "module",
   "keywords": [
@@ -48,22 +48,22 @@
     "LICENSE"
   ],
   "peerDependencies": {
-    "melonjs": "^15.2.0"
+    "melonjs": "^15.5.0"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.21.8",
-    "@babel/plugin-syntax-import-assertions": "^7.20.0",
-    "@rollup/plugin-commonjs": "^24.1.0",
+    "@babel/eslint-parser": "^7.22.9",
+    "@babel/plugin-syntax-import-assertions": "^7.22.5",
+    "@rollup/plugin-commonjs": "^25.0.2",
     "@rollup/plugin-image": "^3.0.2",
-    "@rollup/plugin-node-resolve": "^15.0.2",
+    "@rollup/plugin-node-resolve": "^15.1.0",
     "@rollup/plugin-replace": "^5.0.2",
     "del-cli": "^5.0.0",
-    "eslint": "^8.40.0",
-    "eslint-plugin-jsdoc": "^44.2.3",
-    "rollup": "^3.21.6",
+    "eslint": "^8.44.0",
+    "eslint-plugin-jsdoc": "^44.2.7",
+    "rollup": "^3.26.2",
     "rollup-plugin-bundle-size": "^1.0.3",
     "rollup-plugin-string": "^3.0.0",
-    "typescript": "^5.0.4"
+    "typescript": "^5.1.6"
   },
   "scripts": {
     "build": "npm run lint && rollup -c --silent && npm run types",
