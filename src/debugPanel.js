@@ -6,7 +6,6 @@ import {
     Rect,
     event,
     plugin,
-    plugins,
     Entity,
     Container,
     Camera2d,
@@ -27,7 +26,7 @@ import fontDataSource from "./font/PressStart2P.fnt";
 const DEBUG_HEIGHT = 50;
 
 export class DebugPanel extends Renderable {
-    constructor(debugToggle = input.KEY.S) {
+    constructor(debugToggle) {
         // call the super constructor
         super(0, 0, video.renderer.getWidth(), DEBUG_HEIGHT );
 
@@ -114,11 +113,6 @@ export class DebugPanel extends Renderable {
 
         // add some keyboard shortcuts
         this.debugToggle = debugToggle;
-        this.keyHandler = event.on(event.KEYDOWN, (action, keyCode) => {
-            if (keyCode === this.debugToggle) {
-                plugins.debugPanel.toggle();
-            }
-        });
 
         // some internal string/length
         this.help_str        = "["+String.fromCharCode(32 + this.debugToggle)+"]show/hide";
@@ -556,7 +550,5 @@ export class DebugPanel extends Renderable {
     onDestroyEvent() {
         // hide the panel
         this.hide();
-        // unbind keys event
-        input.unbindKey(this.toggleKey);
     }
 }

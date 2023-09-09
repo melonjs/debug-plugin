@@ -1,4 +1,4 @@
-import { utils, plugin } from "melonjs";
+import { utils, plugin, input, event } from "melonjs";
 import { DebugPanel } from "./debugPanel";
 
 /**
@@ -27,15 +27,26 @@ import { DebugPanel } from "./debugPanel";
  * @augments plugin.BasePlugin
  */
 export class DebugPanelPlugin extends plugin.BasePlugin {
-
-    constructor(debugToggle) {
+    /**
+     * @param {number} [debugToggle=input.KEY.S] - a default key to toggle the debug panel visibility state
+     * @see input.KEY for default key options
+     */
+    constructor(debugToggle = input.KEY.S) {
         // call the super constructor
         super();
 
         // minimum melonJS version expected
         this.version = "15.2.0";
 
+        this.debugToggle = debugToggle;
+
         this.panel = new DebugPanel(debugToggle);
+
+        this.keyHandler = event.on(event.KEYDOWN, (action, keyCode) => {
+            if (keyCode === this.debugToggle) {
+                this.toggle();
+            }
+        });
 
         // if "#debug" is present in the URL
         if (utils.getUriFragment().debug === true) {
