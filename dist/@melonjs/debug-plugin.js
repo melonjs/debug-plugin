@@ -1,11 +1,109 @@
 /*!
- * melonJS debug plugin - v14.6.5
+ * melonJS debug plugin - v14.7.0
  * http://www.melonjs.org
  * @melonjs/debug-plugin is licensed under the MIT License.
  * http://www.opensource.org/licenses/mit-license
  * @copyright (C) 2011 - 2023 Olivier Biot (AltByte Pte Ltd)
  */
-import { Renderable, video, utils, BitmapText, Rect, event, plugins, input, plugin, Container, Entity, Text, Camera2d, ImageLayer, game, timer, collision, Math, pool } from 'melonjs';
+import { Renderable, video, utils, BitmapText, Rect, event, plugin, Container, Entity, Text, Camera2d, ImageLayer, game, input, timer, collision, Math, pool } from 'melonjs';
+
+var name = "@melonjs/debug-plugin";
+var version = "14.7.0";
+var description = "melonJS debug plugin";
+var homepage = "https://github.com/melonjs/debug-plugin#readme";
+var type = "module";
+var keywords = [
+	"2D",
+	"HTML5",
+	"javascript",
+	"TypeScript",
+	"es6",
+	"Canvas",
+	"WebGL",
+	"WebGL2",
+	"WebAudio",
+	"game",
+	"engine",
+	"tiled",
+	"tileset",
+	"mapeditor",
+	"browser",
+	"electron",
+	"mobile",
+	"cordova"
+];
+var repository = {
+	type: "git",
+	url: "git+https://github.com/melonjs/debug-plugin.git"
+};
+var bugs = {
+	url: "https://github.com/melonjs/debug-plugin/issues"
+};
+var license = "MIT";
+var author = "Olivier Biot (AltByte Pte Ltd)";
+var funding = "https://github.com/sponsors/melonjs";
+var engines = {
+	node: ">= 19"
+};
+var main = "dist/@melonjs/debug-plugin.js";
+var module = "dist/@melonjs/debug-plugin.js";
+var types = "dist/@melonjs/debug-plugin.d.ts";
+var sideEffects = false;
+var files = [
+	"dist/",
+	"src/",
+	"package.json",
+	"README.md",
+	"LICENSE"
+];
+var peerDependencies = {
+	melonjs: "15.5.0"
+};
+var devDependencies = {
+	"@babel/eslint-parser": "^7.22.15",
+	"@babel/plugin-syntax-import-assertions": "^7.22.5",
+	"@rollup/plugin-commonjs": "^25.0.4",
+	"@rollup/plugin-image": "^3.0.2",
+	"@rollup/plugin-json": "^6.0.0",
+	"@rollup/plugin-node-resolve": "^15.2.1",
+	"@rollup/plugin-replace": "^5.0.2",
+	"del-cli": "^5.1.0",
+	eslint: "^8.49.0",
+	"eslint-plugin-jsdoc": "^46.5.1",
+	rollup: "^3.29.0",
+	"rollup-plugin-bundle-size": "^1.0.3",
+	"rollup-plugin-string": "^3.0.0",
+	typescript: "^5.2.2"
+};
+var scripts = {
+	build: "npm run lint && rollup -c --silent && npm run types",
+	lint: "eslint src/**.js rollup.config.mjs",
+	prepublishOnly: "npm run build",
+	clean: "del-cli --force dist/*",
+	types: "tsc"
+};
+var _package = {
+	name: name,
+	version: version,
+	description: description,
+	homepage: homepage,
+	type: type,
+	keywords: keywords,
+	repository: repository,
+	bugs: bugs,
+	license: license,
+	author: author,
+	funding: funding,
+	engines: engines,
+	main: main,
+	module: module,
+	types: types,
+	sideEffects: sideEffects,
+	files: files,
+	peerDependencies: peerDependencies,
+	devDependencies: devDependencies,
+	scripts: scripts
+};
 
 class Counters {
     constructor() {
@@ -31,7 +129,7 @@ var fontDataSource = "info face=PressStart2P size=10 bold=0 italic=0 charset= un
 const DEBUG_HEIGHT = 50;
 
 class DebugPanel extends Renderable {
-    constructor(debugToggle = input.KEY.S) {
+    constructor(debugToggle) {
         // call the super constructor
         super(0, 0, video.renderer.getWidth(), DEBUG_HEIGHT );
 
@@ -71,7 +169,7 @@ class DebugPanel extends Renderable {
         this.name = "debugPanel";
 
         // the debug panel version
-        this.version = "14.6.5";
+        this.version = "14.7.0";
 
         // persistent
         this.isPersistent = true;
@@ -118,11 +216,6 @@ class DebugPanel extends Renderable {
 
         // add some keyboard shortcuts
         this.debugToggle = debugToggle;
-        this.keyHandler = event.on(event.KEYDOWN, (action, keyCode) => {
-            if (keyCode === this.debugToggle) {
-                plugins.debugPanel.toggle();
-            }
-        });
 
         // some internal string/length
         this.help_str        = "["+String.fromCharCode(32 + this.debugToggle)+"]show/hide";
@@ -560,8 +653,6 @@ class DebugPanel extends Renderable {
     onDestroyEvent() {
         // hide the panel
         this.hide();
-        // unbind keys event
-        input.unbindKey(this.toggleKey);
     }
 }
 
@@ -591,15 +682,29 @@ class DebugPanel extends Renderable {
  * @augments plugin.BasePlugin
  */
 class DebugPanelPlugin extends plugin.BasePlugin {
-
-    constructor(debugToggle) {
+    /**
+     * @param {number} [debugToggle=input.KEY.S] - a default key to toggle the debug panel visibility state
+     * @see input.KEY for default key options
+     */
+    constructor(debugToggle = input.KEY.S) {
         // call the super constructor
         super();
 
         // minimum melonJS version expected
-        this.version = "15.2.0";
+        this.version = peerDependencies["melonjs"];
+
+        // hello world
+        console.log(`${name} ${version} | ${homepage}`);
+
+        this.debugToggle = debugToggle;
 
         this.panel = new DebugPanel(debugToggle);
+
+        this.keyHandler = event.on(event.KEYDOWN, (action, keyCode) => {
+            if (keyCode === this.debugToggle) {
+                this.toggle();
+            }
+        });
 
         // if "#debug" is present in the URL
         if (utils.getUriFragment().debug === true) {

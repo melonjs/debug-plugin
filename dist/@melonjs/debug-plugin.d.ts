@@ -24,8 +24,14 @@
  * @augments plugin.BasePlugin
  */
 export class DebugPanelPlugin extends plugin.BasePlugin {
-    constructor(debugToggle: any);
+    /**
+     * @param {number} [debugToggle=input.KEY.S] - a default key to toggle the debug panel visibility state
+     * @see input.KEY for default key options
+     */
+    constructor(debugToggle?: number | undefined);
+    debugToggle: number;
     panel: DebugPanel;
+    keyHandler: import("eventemitter3").EventEmitter<string | symbol, any>;
     /**
      * show the debug panel
      */
@@ -41,7 +47,7 @@ export class DebugPanelPlugin extends plugin.BasePlugin {
 }
 import { plugin } from 'melonjs';
 declare class DebugPanel extends Renderable {
-    constructor(debugToggle?: number);
+    constructor(debugToggle: any);
     checkbox: {};
     counters: Counters;
     visible: boolean;
@@ -52,8 +58,7 @@ declare class DebugPanel extends Renderable {
     font_size: number;
     mod: number;
     font: BitmapText;
-    debugToggle: number;
-    keyHandler: import("eventemitter3").EventEmitter<string | symbol, any>;
+    debugToggle: any;
     help_str: string;
     help_str_len: number;
     fps_str_len: number;
