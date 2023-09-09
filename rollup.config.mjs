@@ -4,6 +4,7 @@ import image from "@rollup/plugin-image";
 import bundleSize from "rollup-plugin-bundle-size";
 import commonjs from "@rollup/plugin-commonjs";
 import resolve from "@rollup/plugin-node-resolve";
+import json from "@rollup/plugin-json";
 import pkg from "./package.json" assert { type: "json" };
 
 // credit/license information
@@ -20,6 +21,7 @@ const license = [
 export default [{
     input: "src/index.js",
     plugins: [
+        json(),
         resolve({
             mainFields: ["module"],
             browser: true,

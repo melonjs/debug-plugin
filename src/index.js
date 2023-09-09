@@ -1,4 +1,5 @@
 import { utils, plugin, input, event } from "melonjs";
+import { name, version, homepage, peerDependencies } from "../package.json";
 import { DebugPanel } from "./debugPanel";
 
 /**
@@ -36,7 +37,10 @@ export class DebugPanelPlugin extends plugin.BasePlugin {
         super();
 
         // minimum melonJS version expected
-        this.version = "15.2.0";
+        this.version = peerDependencies["melonjs"];
+
+        // hello world
+        console.log(`${name} ${version} | ${homepage}`);
 
         this.debugToggle = debugToggle;
 
