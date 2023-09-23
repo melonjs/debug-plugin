@@ -57,7 +57,7 @@ var files = [
 	"LICENSE"
 ];
 var peerDependencies = {
-	melonjs: "15.5.0"
+	melonjs: "15.12.0"
 };
 var devDependencies = {
 	"@babel/eslint-parser": "^7.22.15",
