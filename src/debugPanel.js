@@ -28,7 +28,7 @@ const DEBUG_HEIGHT = 50;
 export class DebugPanel extends Renderable {
     constructor(debugToggle) {
         // call the super constructor
-        super(0, 0, video.renderer.getWidth(), DEBUG_HEIGHT );
+        super(0, 0, video.renderer.width, DEBUG_HEIGHT );
 
         // enable collision and event detection
         this.isKinematic = false;

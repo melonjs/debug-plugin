@@ -1,5 +1,5 @@
 /*!
- * melonJS debug plugin - v14.7.0
+ * melonJS debug plugin - v14.8.0
  * http://www.melonjs.org
  * @melonjs/debug-plugin is licensed under the MIT License.
  * http://www.opensource.org/licenses/mit-license
@@ -8,7 +8,7 @@
 import { Renderable, video, utils, BitmapText, Rect, event, plugin, Container, Entity, Text, Camera2d, ImageLayer, game, input, timer, collision, Math, pool } from 'melonjs';
 
 var name = "@melonjs/debug-plugin";
-var version = "14.7.0";
+var version = "14.8.0";
 var description = "melonJS debug plugin";
 var homepage = "https://github.com/melonjs/debug-plugin#readme";
 var type = "module";
@@ -68,9 +68,9 @@ var devDependencies = {
 	"@rollup/plugin-node-resolve": "^15.2.1",
 	"@rollup/plugin-replace": "^5.0.2",
 	"del-cli": "^5.1.0",
-	eslint: "^8.49.0",
-	"eslint-plugin-jsdoc": "^46.5.1",
-	rollup: "^3.29.0",
+	eslint: "^8.50.0",
+	"eslint-plugin-jsdoc": "^46.8.2",
+	rollup: "^3.29.2",
 	"rollup-plugin-bundle-size": "^1.0.3",
 	"rollup-plugin-string": "^3.0.0",
 	typescript: "^5.2.2"
@@ -131,7 +131,7 @@ const DEBUG_HEIGHT = 50;
 class DebugPanel extends Renderable {
     constructor(debugToggle) {
         // call the super constructor
-        super(0, 0, video.renderer.getWidth(), DEBUG_HEIGHT );
+        super(0, 0, video.renderer.width, DEBUG_HEIGHT );
 
         // enable collision and event detection
         this.isKinematic = false;
@@ -169,7 +169,7 @@ class DebugPanel extends Renderable {
         this.name = "debugPanel";
 
         // the debug panel version
-        this.version = "14.7.0";
+        this.version = "14.8.0";
 
         // persistent
         this.isPersistent = true;
