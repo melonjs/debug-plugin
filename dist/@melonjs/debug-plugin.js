@@ -1,14 +1,14 @@
 /*!
- * melonJS debug plugin - v14.8.0
+ * melonJS debug plugin - v14.8.1
  * http://www.melonjs.org
  * @melonjs/debug-plugin is licensed under the MIT License.
  * http://www.opensource.org/licenses/mit-license
  * @copyright (C) 2011 - 2023 Olivier Biot (AltByte Pte Ltd)
  */
-import { Renderable, video, utils, BitmapText, Rect, event, plugin, Container, Entity, Text, Camera2d, ImageLayer, game, input, timer, collision, Math, pool } from 'melonjs';
+import { Renderable, video, utils, BitmapText, Rect, event, Container, Entity, Text, Camera2d, ImageLayer, plugin, game, input, timer, collision, Math, pool } from 'melonjs';
 
 var name = "@melonjs/debug-plugin";
-var version = "14.8.0";
+var version = "14.8.1";
 var description = "melonJS debug plugin";
 var homepage = "https://github.com/melonjs/debug-plugin#readme";
 var type = "module";
@@ -57,20 +57,20 @@ var files = [
 	"LICENSE"
 ];
 var peerDependencies = {
-	melonjs: "15.12.0"
+	melonjs: "^15.12.0"
 };
 var devDependencies = {
 	"@babel/eslint-parser": "^7.22.15",
 	"@babel/plugin-syntax-import-assertions": "^7.22.5",
-	"@rollup/plugin-commonjs": "^25.0.4",
-	"@rollup/plugin-image": "^3.0.2",
-	"@rollup/plugin-json": "^6.0.0",
-	"@rollup/plugin-node-resolve": "^15.2.1",
-	"@rollup/plugin-replace": "^5.0.2",
+	"@rollup/plugin-commonjs": "^25.0.5",
+	"@rollup/plugin-image": "^3.0.3",
+	"@rollup/plugin-json": "^6.0.1",
+	"@rollup/plugin-node-resolve": "^15.2.3",
+	"@rollup/plugin-replace": "^5.0.3",
 	"del-cli": "^5.1.0",
-	eslint: "^8.50.0",
+	eslint: "^8.51.0",
 	"eslint-plugin-jsdoc": "^46.8.2",
-	rollup: "^3.29.2",
+	rollup: "^4.0.2",
 	"rollup-plugin-bundle-size": "^1.0.3",
 	"rollup-plugin-string": "^3.0.0",
 	typescript: "^5.2.2"
@@ -169,7 +169,7 @@ class DebugPanel extends Renderable {
         this.name = "debugPanel";
 
         // the debug panel version
-        this.version = "14.8.0";
+        this.version = "14.8.1";
 
         // persistent
         this.isPersistent = true;
