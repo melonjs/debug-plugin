@@ -1,14 +1,14 @@
 /*!
- * melonJS debug plugin - v14.8.1
+ * melonJS debug plugin - v14.8.2
  * http://www.melonjs.org
  * @melonjs/debug-plugin is licensed under the MIT License.
  * http://www.opensource.org/licenses/mit-license
- * @copyright (C) 2011 - 2023 Olivier Biot (AltByte Pte Ltd)
+ * @copyright (C) 2011 - 2024 Olivier Biot (AltByte Pte Ltd)
  */
-import { Renderable, video, utils, BitmapText, Rect, event, Container, Entity, Text, Camera2d, ImageLayer, plugin, game, input, timer, collision, Math, pool } from 'melonjs';
+import { Renderable, video, utils, BitmapText, Rect, event, plugin, Container, Entity, Text, Camera2d, ImageLayer, game, input, timer, collision, Math, pool } from 'melonjs';
 
 var name = "@melonjs/debug-plugin";
-var version = "14.8.1";
+var version = "14.8.2";
 var description = "melonJS debug plugin";
 var homepage = "https://github.com/melonjs/debug-plugin#readme";
 var type = "module";
@@ -57,23 +57,23 @@ var files = [
 	"LICENSE"
 ];
 var peerDependencies = {
-	melonjs: "^15.12.0"
+	melonjs: ">=15.12"
 };
 var devDependencies = {
-	"@babel/eslint-parser": "^7.22.15",
-	"@babel/plugin-syntax-import-assertions": "^7.22.5",
-	"@rollup/plugin-commonjs": "^25.0.5",
+	"@babel/eslint-parser": "^7.23.10",
+	"@babel/plugin-syntax-import-assertions": "^7.23.3",
+	"@rollup/plugin-commonjs": "^25.0.7",
 	"@rollup/plugin-image": "^3.0.3",
-	"@rollup/plugin-json": "^6.0.1",
+	"@rollup/plugin-json": "^6.0.7",
 	"@rollup/plugin-node-resolve": "^15.2.3",
-	"@rollup/plugin-replace": "^5.0.3",
+	"@rollup/plugin-replace": "^5.0.5",
 	"del-cli": "^5.1.0",
-	eslint: "^8.51.0",
-	"eslint-plugin-jsdoc": "^46.8.2",
-	rollup: "^4.0.2",
+	eslint: "^8.56.0",
+	"eslint-plugin-jsdoc": "^48.0.4",
+	rollup: "^4.9.6",
 	"rollup-plugin-bundle-size": "^1.0.3",
 	"rollup-plugin-string": "^3.0.0",
-	typescript: "^5.2.2"
+	typescript: "^5.3.3"
 };
 var scripts = {
 	build: "npm run lint && rollup -c --silent && npm run types",
@@ -169,7 +169,7 @@ class DebugPanel extends Renderable {
         this.name = "debugPanel";
 
         // the debug panel version
-        this.version = "14.8.1";
+        this.version = "14.8.2";
 
         // persistent
         this.isPersistent = true;
