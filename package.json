@@ -1,6 +1,6 @@
 {
   "name": "@melonjs/debug-plugin",
-  "version": "14.8.2",
+  "version": "14.8.3",
   "description": "melonJS debug plugin",
   "homepage": "https://github.com/melonjs/debug-plugin#readme",
   "type": "module",
@@ -61,8 +61,8 @@
     "@rollup/plugin-replace": "^5.0.5",
     "del-cli": "^5.1.0",
     "eslint": "^8.56.0",
-    "eslint-plugin-jsdoc": "^48.0.4",
-    "rollup": "^4.9.6",
+    "eslint-plugin-jsdoc": "^48.0.6",
+    "rollup": "^4.10.0",
     "rollup-plugin-bundle-size": "^1.0.3",
     "rollup-plugin-string": "^3.0.0",
     "typescript": "^5.3.3"
