@@ -37,7 +37,7 @@ export class DebugPanelPlugin extends plugin.BasePlugin {
         super();
 
         // minimum melonJS version expected
-        this.version = "15.12";
+        this.version = "15.12.0";
 
         // hello world
         console.log(`${name} ${version} | ${homepage}`);

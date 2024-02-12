@@ -57,7 +57,7 @@ var files = [
 	"LICENSE"
 ];
 var peerDependencies = {
-	melonjs: ">=15.12"
+	melonjs: ">=15.12.0"
 };
 var devDependencies = {
 	"@babel/eslint-parser": "^7.23.10",
@@ -691,7 +691,7 @@ class DebugPanelPlugin extends plugin.BasePlugin {
         super();
 
         // minimum melonJS version expected
-        this.version = "15.12";
+        this.version = "15.12.0";
 
         // hello world
         console.log(`${name} ${version} | ${homepage}`);
