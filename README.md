@@ -1,3 +1,7 @@
+# THE DEBUG PLUGIN HAS BEEN MOVED WITHIN THE MELONJS MONO REPO
+
+https://github.com/melonjs/melonJS/tree/master/packages/debug-plugin
+
 # melonJS Debug Plugin
 ![melonJS Logo](https://github.com/melonjs/melonJS/raw/master/media/Banner/Banner%20-%20Billboard%20-%20Original%20Logo%20-%20horizontal.png)
 
